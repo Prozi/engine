@@ -5,7 +5,7 @@ A simple zero-depencency engine for bootstrapping games.
 
 ## Installation
 
-npm i --save @minininja/engine
+`npm i --save @minininja/engine`
 
 
 ## Documentation
@@ -20,10 +20,6 @@ https://prozi.github.io/engine/
 ✅ `GameObject`: class
 
 ✅ `Script`: class
-
-and one helper
-
-✅ `Vector3`: class
 
 
 ## About

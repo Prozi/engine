@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint --ext js src/ test/ --fix",
     "test": "karma start --single-run",
-    "doc": "jsdoc src README.md package.json"
+    "docs": "jsdoc src README.md package.json && rm -rf docs/ && mv out/@minininja/engine/1.0.0/ docs/ && git add docs/"
   },
   "keywords": [
     "game",
