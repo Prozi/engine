@@ -127,8 +127,8 @@ class GameObject extends Component {
     this.parent = props.parent || null
     this.children = props.children || []
 
-    this.transform = new Vector3(0, 0, 0)
-    props.position && this.transform.setPosition(props.position)
+    this.position = new Vector3(0, 0, 0)
+    props.position && this.position.setPosition(props.position)
   }
   /**
    * propagate event to Children

@@ -29,5 +29,5 @@ module.exports = function (config) {
       cache: true,
       devtool: 'inline-source-map'
     },
-  });
-};
+  })
+}
