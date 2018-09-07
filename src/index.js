@@ -1,7 +1,7 @@
 'use strict'
 
 /**
- * This is a Vector(x, y, z) with setPosition fuction
+ * This is a Vector(x, y, z) with set(position) fuction
  */
 class Vector3 {
   /**
@@ -11,13 +11,13 @@ class Vector3 {
    * @param {number} z z-axis position, float
    */
   constructor(x = 0, y = 0, z = 0) {
-    this.setPosition({ x, y, z })
+    this.set({ x, y, z })
   }
   /**
    * Set Vector position by object{x, y, z}
    * @param {object} position contains {x, y, z}
    */
-  setPosition({ x, y, z }) {
+  set({ x, y, z }) {
     this.x = x
     this.y = y
     this.z = z  
@@ -128,7 +128,7 @@ class GameObject extends Component {
     this.children = props.children || []
 
     this.position = new Vector3(0, 0, 0)
-    props.position && this.position.setPosition(props.position)
+    props.position && this.position.set(props.position)
   }
   /**
    * propagate event to Children
