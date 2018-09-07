@@ -1,12 +1,15 @@
 {
   "name": "@minininja/engine",
-  "version": "1.0.3",
-  "description": "A simple zero-dependency modular game engine for bootstrapping games.",
+  "version": "1.0.4",
+  "description": "A simple zero-dependency modular game engine for bootstrapping games. ",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint --ext js src/ test/ --fix",
     "test": "karma start --single-run",
-    "docs": "jsdoc src README.md package.json && rm -rf docs/ && mv out/@minininja/engine/* docs/ && git add docs/"
+    "docs:make": "jsdoc --configure .jsdoc.json --verbose",
+    "docs:copy": "rm -rf docs/ && mv out/@minininja/engine/* docs/ && git add docs/",
+    "docs": "yarn docs:make && yarn docs:copy",
+    "docs:dev": "yarn docs && http-server docs"
   },
   "repository": {
     "type": "git",
@@ -24,7 +27,10 @@
   ],
   "author": "Jacek Pietal <prozi85@gmail.com>",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "http-server": "^0.11.1",
+    "jsdoc-template": "https://github.com/braintree/jsdoc-template.git"
+  },
   "devDependencies": {
     "eslint": "^5.5.0",
     "html-webpack-plugin": "^3.2.0",

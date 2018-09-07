@@ -33,7 +33,13 @@ class Vector3 {
 class Component {
   /**
    * Initializes component with props
-   * @param {object} props contains {name, active, onEnable?, onDisable?, onStart?, onUpdate?}
+   * @param {object} props
+   * @param {string} [props.name=Component]
+   * @param {boolean} [props.active=true]
+   * @param {function} [props.onEnable]
+   * @param {function} [props.onDisable]
+   * @param {function} [props.onStart]
+   * @param {function} [props.onUpdate]
    */
   constructor(props = {}) {
     this.name = props.name || 'Component'
@@ -51,8 +57,7 @@ class Component {
     return this._active || false
   }
   /**
-   * Setter for active flag
-   * calls onEnable / onDisable
+   * Setter for active flag + calls onEnable / onDisable
    * @param {boolean} active active flag
    */
   set active(active) {
@@ -60,22 +65,22 @@ class Component {
     active ? this.onEnable() : this.onDisable()
   }
   /**
-   * Dummy function for override
+   * Dummy onEnable function to override
    */
   onEnable() {
   }
   /**
-   * Dummy function for override
+   * Dummy onDisable function to override
    */
   onDisable() {
   }
   /**
-   * Dummy function for override
+   * Dummy onStart function to override
    */
   onStart() {
   }
   /**
-   * Dummy function for override
+   * Dummy onUpdate function to override
    */
   onUpdate() {
   }
@@ -87,23 +92,34 @@ class Component {
 class Script extends Component {
   /**
    * Initializes component with props
-   * @param {object} props contains {name, active, onEnable?, onDisable?, onStart?, onUpdate?}
-   */
+   * @extends Component
+   * @param {object} props
+   * @param {string} [props.name=Script]
+   * @param {boolean} [props.active=true]
+   * @param {function} [props.onEnable]
+   * @param {function} [props.onDisable]
+   * @param {function} [props.onStart]
+   * @param {function} [props.onUpdate]
+x   */
   constructor(props) {
     super(Object.assign({name: 'Script'}, props))
   }
 }
 
 /**
- * Simple GameObject that has
- * children: GameObject[]
- * addChild(child: GameObject)
- * removeChild(child: GameObject)
+ * Simple GameObject API
  */
 class GameObject extends Component {
   /**
    * Initializes component with props
-   * @param {object} props contains {name, active, onEnable?, onDisable?, onStart?, onUpdate?}
+   * @extends Component
+   * @param {object} props
+   * @param {string} [props.name=GameObject]
+   * @param {boolean} [props.active=true]
+   * @param {function} [props.onEnable]
+   * @param {function} [props.onDisable]
+   * @param {function} [props.onStart]
+   * @param {function} [props.onUpdate]
    */
   constructor(props = {}) {
     super(Object.assign({name: 'GameObject'}, props))
@@ -153,6 +169,17 @@ class GameObject extends Component {
  * To differentiate Scenes from simple GameObjects
  */
 class Scene extends GameObject {
+  /**
+   * Creates a new scene with props
+   * @extends GameObject
+   * @param {object} props
+   * @param {string} [props.name=Scene]
+   * @param {boolean} [props.active=true]
+   * @param {function} [props.onEnable]
+   * @param {function} [props.onDisable]
+   * @param {function} [props.onStart]
+   * @param {function} [props.onUpdate]
+   */
   constructor(props) {
     super(Object.assign({name: 'Scene'}, props))
   }
