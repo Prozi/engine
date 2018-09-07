@@ -1,16 +1,26 @@
 {
   "name": "@minininja/engine",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple game engine based on modularity",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint --ext js src/ test/ --fix",
     "test": "karma start --single-run",
-    "docs": "jsdoc src README.md package.json && rm -rf docs/ && mv out/@minininja/engine/1.0.0/ docs/ && git add docs/"
+    "docs": "jsdoc src README.md package.json && rm -rf docs/ && mv out/@minininja/engine/* docs/ && git add docs/"
   },
+  "repository": {
+    "type": "git",
+    "uri": "git+https@github.com:Prozi/engine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Prozi/engine/issues"
+  },
+  "homepage": "https://prozi.github.io/engine/",
   "keywords": [
     "game",
-    "engine"
+    "engine",
+    "modular",
+    "components"
   ],
   "author": "Jacek Pietal <prozi85@gmail.com>",
   "license": "MIT",
