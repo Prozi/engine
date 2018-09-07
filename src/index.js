@@ -27,7 +27,7 @@ class Vector3 {
 /**
  * This is a basic Component class with
  * name: string
- * active: boolean (defaults to false)
+ * active: boolean (defaults to true)
  * handlers: onEnable, onDisable, onStart, onUpdate
  */
 class Component {
@@ -37,7 +37,7 @@ class Component {
    */
   constructor(props = {}) {
     this.name = props.name || 'Component'
-    // defaults to false, but can be set at creation
+    // defaults to true, but can be set to false at creation
     this.active = props.hasOwnProperty('active') ? props.active : true;
     // bind event handlers
     ['onEnable', 'onDisable', 'onStart', 'onUpdate']

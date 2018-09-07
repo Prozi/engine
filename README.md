@@ -1,7 +1,6 @@
 # @minininja/engine
 
-A simple zero-depencency engine for bootstrapping games.
-
+A simple zero-dependency modular game engine for bootstrapping games.
 
 ## Installation
 
