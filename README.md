@@ -2,7 +2,18 @@
 
 A simple zero-depencency engine for bootstrapping games.
 
------
+
+## Installation
+
+npm i --save @minininja/engine
+
+
+## Documentation
+
+https://prozi.github.io/engine/
+
+
+## Contents
 
 ✅ `Scene`: class
 
@@ -14,7 +25,8 @@ and one helper
 
 ✅ `Vector3`: class
 
------
+
+## About
 
 Changes from `Scene` / `GameObject` propagate to its children
 
@@ -24,7 +36,7 @@ All constructors eat a `JSON` with parameters:
 
 ✅ `active`: boolean
 
-and four handlers:
+and four optional handlers:
 
 ✅ `onEnable`: function
 
@@ -34,11 +46,12 @@ and four handlers:
 
 ✅ `onUpdate`: function
 
------
 
-License: MIT
+## License
 
------
+MIT
 
-Author: Jacek Pietal <prozi85@gmail.com>
 
+## Author
+
+Jacek Pietal <prozi85@gmail.com>
