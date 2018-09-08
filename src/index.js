@@ -84,6 +84,16 @@ class Component {
    */
   onUpdate() {
   }
+  /**
+   * Dummy onAfterUpdate function to override
+   */
+  afterStart() {
+  }
+  /**
+   * Dummy onAfterUpdate function to override
+   */
+  afterUpdate() {
+  }
 }
 
 /**
@@ -134,13 +144,17 @@ class GameObject extends Component {
    * propagate event to Children
    */
   onStart() {
-    this.children.forEach((child) => child.onStart())
+    const children = this.children.filter((child) => child.active)
+    children.forEach((child) => child.onStart())
+    children.forEach((child) => child.afterUpdate())
   }
   /**
    * propagate event to Children
    */
   onUpdate() {
-    this.children.forEach((child) => child.onUpdate())
+    const children = this.children.filter((child) => child.active)
+    children.forEach((child) => child.onUpdate())
+    children.forEach((child) => child.afterUpdate())
   }
   /**
    * Adds child
