@@ -110,7 +110,7 @@ class Script extends Component {
    * @param {function} [props.onDisable]
    * @param {function} [props.onStart]
    * @param {function} [props.onUpdate]
-x   */
+   */
   constructor(props) {
     super(Object.assign({name: 'Script'}, props))
   }
@@ -137,8 +137,14 @@ class GameObject extends Component {
     this.parent = props.parent || null
     this.children = props.children || []
 
-    this.position = new Vector3(0, 0, 0)
-    props.position && this.position.set(props.position)
+    this.createTransform()
+    if (props.position) this.transform.position.set(props.position)
+  }
+  /**
+   * creates Transform a.k.a. BASE DRAWABLE OBJECT
+   */
+  createTransform() {
+    return new Vector3(0, 0, 0)
   }
   /**
    * propagate event to Children
@@ -161,10 +167,10 @@ class GameObject extends Component {
    * @param {GameObject} child Component/GameObject instance
    */
   addChild(child) {
-    if (child instanceof Component && child.parent !== this) {
-      child.parent && child.parent.removeChild(child)
+    if (child instanceof Component && Component.transform.parent !== this) {
+      if (child.transform.parent) child.transform.parent.removeChild(child.transform)
+      this.transform.addChild(child.transform)
       this.children.push(child)
-      child.parent = this
     }
   }
   /**
