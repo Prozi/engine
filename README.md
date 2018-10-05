@@ -20,6 +20,8 @@ https://prozi.github.io/engine/
 
 ✅ `Script`: class
 
+✅ `Vector3`: class
+
 
 ## About
 
@@ -40,6 +42,8 @@ and four optional handlers:
 ✅ `onStart`: function
 
 ✅ `onUpdate`: function
+
+✅ `transform`: property (Vector3, source of position you can overwrite with anything)
 
 
 ## License
