@@ -260,7 +260,7 @@ class GameObject extends Component {
     super(Object.assign({name: 'GameObject'}, props))
 
     this.scripts = props.scripts || []
-    this.transform = this.createTransform()
+    this.transform = this.createTransform(props.config)
 
     if (props.children) {
       props.children.forEach((child) => this.transform.addChild(child))
@@ -271,8 +271,9 @@ class GameObject extends Component {
   }
   /**
    * overwritten in child repositories
+   * @param {object} config
    */
-  createTransform() {
+  createTransform(config) {
     return new Transform(this)
   }
   /**
