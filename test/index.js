@@ -1,6 +1,6 @@
 'use strict'
 
-const {GameObject, Scene, Script} = require('../src')
+const {Scene, GameObject, Script} = require('../src')
 
 /* global describe,it,expect*/
 
@@ -12,23 +12,23 @@ describe('Base TEST', () => {
 
   it('Should have hierarchy', () => {
     const scene = new Scene()
-    const go = new GameObject({name: 'TestGameObject'})
-    const child = new GameObject({name: 'TestChild'})
-    go.addChild(child)
-    scene.addChild(go)
+    const gameObject = new GameObject({name: 'TestGameObject'})
+    const child = new Script({name: 'TestChild'})
+    gameObject.addScript(child)
+    scene.addScript(gameObject)
     scene.onStart()
-    expect(scene.children[0].name).toEqual('TestGameObject')
-    expect(go.children[0].name).toEqual('TestChild')
+    expect(scene.scripts[0].name).toEqual('TestGameObject')
+    expect(gameObject.scripts[0].name).toEqual('TestChild')
   })
 
   it('Should run scripts in hierarchy', () => {
     const scene = new Scene()
-    const go = new GameObject({name: 'TestGameObject'})
-    const script = new Script({name: 'TestScript', onStart () { this.started = true }})
-    go.addChild(script)
-    scene.addChild(go)
+    const gameObject = new GameObject({name: 'TestGameObject'})
+    const child = new Script({name: 'TestScript', onStart () { this.started = true }})
+    gameObject.addScript(child)
+    scene.addScript(gameObject)
     scene.onStart()
-    expect(script.started).toEqual(true)
+    expect(gameObject.scripts[0].started).toEqual(true)
   })
 
 })

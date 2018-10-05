@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      Home - Documentation
+      Transform - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -48,14 +48,14 @@
 
   <div class="top-nav-wrapper">
     <ul>
-      <li  class="active" >
+      <li >
         <a href="index.html">
           
-          
-            <svg fill="#0095dd" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <svg fill="#6D6D6D" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
               <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
               <path d="M0 0h24v24H0z" fill="none"/>
             </svg>
+          
           
         </a>
       </li>
@@ -75,43 +75,447 @@
 
   <div id="main">
     
+      <h1 class="page-title">
+        Transform
+      </h1>
+    
 
     
+
+<section>
+  <header>
+    
+      <h2>
+        
+        Transform
+        
+      </h2>
+
+      
+        <div class="class-description">
+          <p>Mockup/base transform for engine</p>
+<ul>
+<li>has children</li>
+<li>can add children</li>
+<li>can remove children
+this class may be/is overwritten in child repositories by DRAWABLE instance</li>
+</ul>
+        </div>
+      
+    
+  </header>
+
+  <article>
+    <div class="container-overview">
+      
+        
+
+
+  
+    <h2>Constructor</h2>
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#Transform">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id="Transform">
+      <span class="type-signature"></span>new Transform<span class="signature">()</span><span class="type-signature"></span>
+    </h4>
+  </span>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="index.js.html">index.js</a>, <a href="index.js.html#line126">line 126</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+      <h3 class="subsection-title">Methods</h3>
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#addChild">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id="addChild">
+      <span class="type-signature"></span>addChild<span class="signature">(child)</span><span class="type-signature"></span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    <p>Adds child</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
       
 
-
-
-    
+      <th>Type</th>
 
       
 
+      
 
-  <section class="readme">
-    <article>
-      <h1>@minininja/engine</h1><p>A simple zero-dependency modular game engine for bootstrapping games.</p>
-<h2>Installation</h2><p><code>npm i --save @minininja/engine</code></p>
-<h2>Documentation</h2><p>https://prozi.github.io/engine/</p>
-<h2>Contents</h2><p>✅ <code>Scene</code>: class</p>
-<p>✅ <code>GameObject</code>: class</p>
-<p>✅ <code>Script</code>: class</p>
-<p>✅ <code>Vector3</code>: class</p>
-<h2>About</h2><p>Changes from <code>Scene</code> / <code>GameObject</code> propagate to its children</p>
-<p>All constructors eat a <code>JSON</code> with parameters:</p>
-<p>✅ <code>name</code>: string</p>
-<p>✅ <code>active</code>: boolean</p>
-<p>and four optional handlers:</p>
-<p>✅ <code>onEnable</code>: function</p>
-<p>✅ <code>onDisable</code>: function</p>
-<p>✅ <code>onStart</code>: function</p>
-<p>✅ <code>onUpdate</code>: function</p>
-<p>✅ <code>transform</code>: property (Vector3, source of position you can overwrite with anything)</p>
-<h2>License</h2><p>MIT</p>
-<h2>Author</h2><p>Jacek Pietal <a href="mailto:&#x70;&#x72;&#111;&#122;&#x69;&#x38;&#x35;&#64;&#x67;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#111;&#109;">&#x70;&#x72;&#111;&#122;&#x69;&#x38;&#x35;&#64;&#x67;&#x6d;&#x61;&#105;&#108;&#46;&#x63;&#111;&#109;</a></p>
-    </article>
-  </section>
+      <th class="last">Description</th>
+    </tr>
+  </thead>
 
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>child</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      <a href="GameObject.html">GameObject</a>
+    </span>
 
     
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>Component/GameObject instance</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="index.js.html">index.js</a>, <a href="index.js.html#line137">line 137</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#removeChild">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id="removeChild">
+      <span class="type-signature"></span>removeChild<span class="signature">(child)</span><span class="type-signature"></span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    <p>Removes child</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>child</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      <a href="GameObject.html">GameObject</a>
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>Component/GameObject instance</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="index.js.html">index.js</a>, <a href="index.js.html#line147">line 147</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    
+
+    
+
+    
+  </article>
+</section>
+
+
 
 
   </div>

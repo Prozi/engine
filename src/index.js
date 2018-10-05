@@ -116,6 +116,42 @@ class Script extends Component {
   }
 }
 
+/** 
+ * Mockup/base transform for engine
+ * - has children
+ * - can add children
+ * - can remove children
+ * this class may be/is overwritten in child repositories by DRAWABLE instance
+ */
+class Transform {
+  constructor(gameObject) {
+    this.children = []
+    this.parent = null
+    this.gameObject = gameObject
+    this.position = new Vector3(0, 0, 0)
+  }
+  /**
+   * Adds child
+   * @param {GameObject} child Component/GameObject instance
+   */
+  addChild(child) {
+    if (child.parent) {
+      child.parent.removeChild(child)
+    }
+    this.children.push(child)
+  }
+  /**
+   * Removes child
+   * @param {GameObject} child Component/GameObject instance
+   */
+  removeChild(child) {
+    const index = this.children.indexOf(child)
+    if (index !== -1) {
+      this.children.splice(index, 1)
+    }
+  }
+}
+
 /**
  * Simple GameObject API
  */
@@ -134,54 +170,44 @@ class GameObject extends Component {
   constructor(props = {}) {
     super(Object.assign({name: 'GameObject'}, props))
 
-    this.parent = props.parent || null
-    this.children = props.children || []
-
-    this.createTransform()
-    if (props.position) this.transform.position.set(props.position)
-  }
-  /**
-   * creates Transform a.k.a. BASE DRAWABLE OBJECT
-   */
-  createTransform() {
-    return new Vector3(0, 0, 0)
+    this.scripts = props.scripts || []
+    this.transform = new Transform(this)
+    if (props.position) {
+      this.transform.position.set(props.position)
+    }
   }
   /**
    * propagate event to Children
    */
   onStart() {
-    const children = this.children.filter((child) => child.active)
-    children.forEach((child) => child.onStart())
-    children.forEach((child) => child.afterUpdate())
+    const children = this.scripts.filter((script) => script.active)
+    children.forEach((script) => script.onStart())
+    children.forEach((script) => script.afterUpdate())
   }
   /**
    * propagate event to Children
    */
   onUpdate() {
-    const children = this.children.filter((child) => child.active)
-    children.forEach((child) => child.onUpdate())
-    children.forEach((child) => child.afterUpdate())
+    const children = this.scripts.filter((script) => script.active)
+    children.forEach((script) => script.onUpdate())
+    children.forEach((script) => script.afterUpdate())
   }
   /**
-   * Adds child
-   * @param {GameObject} child Component/GameObject instance
+   * adds a script to scripts
+   * @param {Component} script
    */
-  addChild(child) {
-    if (child instanceof Component && Component.transform.parent !== this) {
-      if (child.transform.parent) child.transform.parent.removeChild(child.transform)
-      this.transform.addChild(child.transform)
-      this.children.push(child)
-    }
+  addScript(script) {
+    if (script.parent) script.parent.removeScript(script)
+    script.parent = this
+    this.scripts.push(script)
   }
   /**
-   * Removes child
-   * @param {GameObject} child Component/GameObject instance
+   * adds a script to scripts
+   * @param {Component} script
    */
-  removeChild(child) {
-    const index = this.children.indexOf(child)
-    if (index !== -1) {
-      this.children.splice(index, 1)
-    }
+  removeScript(script) {
+    const index = this.scripts.indexOf(script)
+    if (index !== 0) this.scripts.splice(index, 1)
   }
 }
 
