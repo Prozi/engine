@@ -171,10 +171,20 @@ class GameObject extends Component {
     super(Object.assign({name: 'GameObject'}, props))
 
     this.scripts = props.scripts || []
-    this.transform = new Transform(this)
+    this.transform = this.createTransform()
+
+    if (props.children) {
+      props.children.forEach((child) => this.transform.addChild(child))
+    }
     if (props.position) {
       this.transform.position.set(props.position)
     }
+  }
+  /**
+   * overwritten in child repositories
+   */
+  createTransform() {
+    return new Transform(this)
   }
   /**
    * propagate event to Children
