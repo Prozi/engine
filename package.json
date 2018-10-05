@@ -1,6 +1,6 @@
 {
   "name": "@minininja/engine",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "A simple zero-dependency modular game engine for bootstrapping games. ",
   "main": "src/index.js",
   "scripts": {
