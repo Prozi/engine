@@ -193,9 +193,9 @@ class GameObject extends Component {
   onStart() {
     const sprites = this.transform.children.filter((child) => child.gameObject).map((child) => child.gameObject)
     const scripts = this.scripts.filter((script) => script.active)
-    scripts.concat(sprites)
-      .forEach((script) => script.onStart())
-      .forEach((script) => script.afterStart())
+    const temp = scripts.concat(sprites)
+    temp.forEach((script) => script.onStart())
+    temp.forEach((script) => script.afterStart())
   }
   /**
    * propagate event to Children
@@ -203,9 +203,9 @@ class GameObject extends Component {
   onUpdate() {
     const sprites = this.transform.children.filter((child) => child.gameObject).map((child) => child.gameObject)
     const scripts = this.scripts.filter((script) => script.active)
-    scripts.concat(sprites)
-      .forEach((script) => script.onUpdate())
-      .forEach((script) => script.afterUpdate())
+    const temp = scripts.concat(sprites)
+    temp.forEach((script) => script.onUpdate())
+    temp.forEach((script) => script.afterUpdate())
   }
   /**
    * adds a script to scripts
