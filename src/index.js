@@ -249,6 +249,6 @@ class Scene extends GameObject {
 /*global module*/
 if (typeof module !== 'undefined') {
   module.exports = {
-    Scene, GameObject, Script
+    Vector3, Component, Script, Transform, GameObject, Scene
   }
 }
