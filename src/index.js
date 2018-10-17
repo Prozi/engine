@@ -48,7 +48,22 @@ class Component {
     // bind event handlers
     ['onEnable', 'onDisable', 'onStart', 'onUpdate']
       .filter((handlerName) => props[handlerName])
-      .forEach((handlerName) => { this[handlerName] = props[handlerName].bind(this) })
+      .forEach((handlerName) => this.extendHandler(props, handlerName))
+  }
+  /**
+   * Function so you can define
+   * onUpdate etc functions
+   * and forget about calling super
+   * since native handler fires anyway
+   */
+  extendHandler(handlers = {}, handlerName) {
+    const handler = handlers[handlerName]
+    const nativeHandler = this[handlerName]
+    if (!handler || !nativeHandler) throw new Error(`No [native] handler for ${handlerName}`)
+    this[handlerName] = () => {
+      handler.call(this)
+      nativeHandler.call(this)
+    }
   }
   /**
    * Getter for active flag
