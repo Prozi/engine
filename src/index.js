@@ -3,7 +3,7 @@
 /**
  * This is a Vector(x, y, z) with set(position) fuction
  */
-class Vector3 {
+export class Vector3 {
   /**
    * Create and initialize
    * @param {number} x x-axis position, float
@@ -30,7 +30,7 @@ class Vector3 {
  * active: boolean (defaults to true)
  * handlers: onEnable, onDisable, onStart, onUpdate
  */
-class Component {
+export class Component {
   /**
    * Initializes component with props
    * @param {object} props
@@ -114,7 +114,7 @@ class Component {
 /**
  * To differentiate Scripts from simple Components
  */
-class Script extends Component {
+export class Script extends Component {
   /**
    * Initializes component with props
    * @extends Component
@@ -138,7 +138,7 @@ class Script extends Component {
  * - can remove children
  * this class may be/is overwritten in child repositories by DRAWABLE instance
  */
-class Transform {
+export class Transform {
   constructor(gameObject) {
     this.children = []
     this.parent = null
@@ -170,7 +170,7 @@ class Transform {
 /**
  * Simple GameObject API
  */
-class GameObject extends Component {
+export class GameObject extends Component {
   /**
    * Initializes component with props
    * @extends Component
@@ -244,7 +244,7 @@ class GameObject extends Component {
 /**
  * To differentiate Scenes from simple GameObjects
  */
-class Scene extends GameObject {
+export class Scene extends GameObject {
   /**
    * Creates a new scene with props
    * @extends GameObject
@@ -258,12 +258,5 @@ class Scene extends GameObject {
    */
   constructor(props) {
     super(Object.assign({name: 'Scene'}, props))
-  }
-}
-
-/*global module*/
-if (typeof module !== 'undefined') {
-  module.exports = {
-    Vector3, Component, Script, Transform, GameObject, Scene
   }
 }
