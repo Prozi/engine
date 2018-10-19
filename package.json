@@ -1,7 +1,7 @@
 {
   "name": "@minininja/engine",
-  "version": "1.1.8",
-  "description": "A simple zero-dependency modular game engine for bootstrapping games. ",
+  "version": "1.1.9",
+  "description": "A simple zero-dependency modular game engine for bootstrapping games.",
   "main": "src/index.js",
   "scripts": {
     "lint": "eslint --ext js src/ test/ --fix",
@@ -9,7 +9,8 @@
     "docs:make": "rm -rf out/ && jsdoc --configure .jsdoc.json --verbose",
     "docs:copy": "rm -rf docs/ && mv out/@minininja/engine/* docs/ && git add docs/",
     "docs": "yarn docs:make && yarn docs:copy",
-    "docs:dev": "yarn docs && http-server docs"
+    "docs:dev": "yarn docs && http-server docs",
+    "prepare": "yarn docs && git add docs"
   },
   "repository": {
     "type": "git",

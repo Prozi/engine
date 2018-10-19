@@ -53,10 +53,6 @@ https://prozi.github.io/engine/
 
 * transform = [PIXI.Container](http://pixijs.download/dev/docs/PIXI.Container.html)
 
-✅ `Vector3`: class
-
-Recommended read: [Vector3](https://docs.unity3d.com/ScriptReference/Vector3.html)
-
 
 ## TL; DR
 
