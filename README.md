@@ -37,8 +37,6 @@ https://prozi.github.io/engine/
 
 ✅ `Script`: Component
 
-* Component is a base class a script is something that only calls updates, gameobjects are based on scripts
-
 ✅ `Transform`: Vector3
 
 * Recommended read: [Transform](https://docs.unity3d.com/Manual/Transforms.html)
@@ -61,8 +59,6 @@ Recommended read: [Vector3](https://docs.unity3d.com/ScriptReference/Vector3.htm
 
 
 ## TL; DR
-
-Changes from `Scene` / `GameObject` propagate to its children
 
 All constructors eat a `JSON` with parameters:
 
